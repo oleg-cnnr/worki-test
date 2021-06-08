@@ -1,0 +1,9 @@
+h4 Задачи на парсинг
+
+- if @collection
+  == render 'list', collection: @collection
+- else
+  p Задачи отсутствуют
+
+.controls
+  = link_to 'Создать задачу', new_task_path, class: 'btn success'

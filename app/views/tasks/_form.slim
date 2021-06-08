@@ -1,0 +1,10 @@
+= simple_form_for @resource do |f|
+  .form-inputs
+    #addresses
+    = f.simple_fields_for :addresses do |address|
+      = render 'address_fields', f: address
+    .links
+      = link_to_add_association 'Добавить адрес', f, :addresses
+
+  .form-buttons
+    = f.submit 'Создать', class: 'btn success'

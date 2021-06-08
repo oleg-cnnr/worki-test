@@ -1,0 +1,70 @@
+/* base */
+html, body
+  position: relative
+  margin: 0
+  padding: 0
+  height: 100%
+  min-height: 100%
+  font-family: 'Open Sans', sans-serif
+
+#wrapper
+  padding: 10px
+  display: inline-block
+
+  a
+    &:link, &:visited
+      color: #000
+    &:hover, &:active
+      color: #00f
+      text-decoration: none
+
+  h4
+    margin: 0 0 20px 0
+
+  table
+    margin: 10px 0
+    tr
+      th
+        text-align: left
+        background: #ccc
+        padding: 2px 5px
+      td
+        padding: 1px 5px
+      &.even
+        td
+          background: #eee
+      &.odd
+        td
+          background: #fff
+
+  .btn
+    padding: 5px 10px
+    border: 0
+    cursor: pointer
+    font-size: 16px
+    &.danger
+      background: #f00
+      color: #fff
+    &.basic
+      background: #90CBFB
+      color: #000
+    &.success
+      background: #58E807
+      color: #000
+
+  .controls
+    display: flex
+    justify-content: space-between
+
+  .nested-fields
+    .input
+      margin-bottom: 20px
+      input
+        width: 300px
+        height: 24px
+        margin: 0 10px
+    .input, .remove_fields
+      display: inline-block
+
+  .form-buttons
+    margin: 20px 0
