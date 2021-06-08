@@ -13,6 +13,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'slim-rails', '~> 3.2'
 gem 'simple_form', '~> 5.1'
 gem 'cocoon', '~> 1.2'
+gem 'faraday', '~> 1.4'
+gem 'aasm', '~> 5.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
