@@ -1,8 +1,8 @@
 class Parser
   attr_reader :address, :connection, :response
 
-  def initialize(address)
-    @address = address
+  def initialize(address_id)
+    @address = Address.find(address_id)
 
     @connection = Faraday.new(url: address.uri)
 

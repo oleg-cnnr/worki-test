@@ -21,6 +21,24 @@ services:
     environment:
       POSTGRES_PASSWORD: password
 
+  sidekiq:
+    env_file:
+      - .env
+    build: .
+    command: bundle exec sidekiq -C config/sidekiq.yml
+    volumes:
+      - .:/app
+    depends_on:
+      - postgres
+      - redis
+    networks:
+      - default
+
+  redis:
+    image: redis:4-alpine
+    networks:
+      - default
+
 volumes:
   db_data:
 

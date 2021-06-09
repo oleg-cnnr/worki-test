@@ -7,7 +7,7 @@ class Task < ApplicationRecord
 
   def process_addresses
     addresses.each do |address|
-      Parser.new(address)
+      ParseWorker.perform_async(address.id)
     end
   end
 
