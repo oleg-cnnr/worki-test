@@ -14,9 +14,11 @@ class TasksController < ApplicationController
 
   def create
     @resource = Task.new(resource_params)
-    @resource.save
-
-    redirect_to task_path(@resource)
+    if @resource.save
+      redirect_to task_path(@resource)
+    else
+      render :new
+    end
   end
 
   def destroy

@@ -3,6 +3,8 @@ class Address < ApplicationRecord
 
   belongs_to :task
 
+  validates :uri, presence: true
+
   aasm column: :state do
     state :awaiting, initial: true
     state :completed, :failed
