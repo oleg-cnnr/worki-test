@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'Tasks', type: :request do
   describe 'GET /tasks' do
     let(:url) { '/tasks' }
@@ -22,13 +24,13 @@ RSpec.describe 'Tasks', type: :request do
     let(:url) { '/tasks' }
     let(:valid_params) do
       {
-        'task': {
-          'addresses_attributes': {
+        task: {
+          addresses_attributes: {
             '0': {
-              'uri': Faker::Internet.url
+              uri: Faker::Internet.url
             },
             '1': {
-              'uri': Faker::Internet.url,
+              uri: Faker::Internet.url
             }
           }
         }
@@ -37,10 +39,10 @@ RSpec.describe 'Tasks', type: :request do
 
     let(:invalid_params) do
       {
-        'task': {
-          'addresses_attributes': {
+        task: {
+          addresses_attributes: {
             '0': {
-              'uri': nil
+              uri: nil
             }
           }
         }
@@ -82,10 +84,11 @@ RSpec.describe 'Tasks', type: :request do
       delete url
     end
 
-    let(:url) { "/tasks/#{Task.first.id}"}
+    let(:url) { "/tasks/#{Task.first.id}" }
 
     it 'delete selected task' do
       expect(Task.count).to eq(1)
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

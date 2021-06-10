@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < ApplicationController
   def index
     @collection = Task.all
@@ -31,7 +33,7 @@ class TasksController < ApplicationController
   private
 
   def resource_params
-    permitted = [addresses_attributes: [:id, :uri]]
+    permitted = [addresses_attributes: %i[id uri]]
     params.require(:task).permit(permitted)
   end
 end

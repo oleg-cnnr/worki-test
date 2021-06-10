@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Parser
   attr_reader :address, :connection, :response
 
@@ -31,6 +33,6 @@ class Parser
   def extract_title
     doc = Nokogiri::HTML(response.body)
 
-    doc.title || 'Заголовок отсутствует' 
+    doc.title || 'Заголовок отсутствует'
   end
 end
