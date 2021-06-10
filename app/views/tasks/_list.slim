@@ -1,10 +1,12 @@
-table
-  tr
-    th ID
-    th Ссылок
-    th Статус
+table.table.table-striped
+  thead.thead-dark
+    tr
+      th ID
+      th Ссылок
+      th Статус
+  tbody
   - collection.each do |item|
-    tr class="#{cycle('even', 'odd')}"
+    tr
       td = link_to item.id, task_path(item)
       td = item.addresses.count
       td = item.processed? ? 'В процессе' : 'Завершена'

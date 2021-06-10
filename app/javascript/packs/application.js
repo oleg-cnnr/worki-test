@@ -7,7 +7,11 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import "cocoon-js";
+
+import "bootstrap"
+import "../stylesheets/application"
+
+import "cocoon-js"
 
 Rails.start()
 ActiveStorage.start()

@@ -1,18 +1,22 @@
-h4 Задача #{@resource.id}
+h4
+  | Задача #{@resource.id}
+  
 
-table
-  tr
-    th URI
-    th Статус
-    th Код ответа
-    th Результат
-  - @resource.addresses.each do |item|
-    tr class="#{cycle('even', 'odd')}"
-      td = item.uri
-      td = item.state
-      td = item.code
-      td = item.result
+table.table.table-striped
+  thead.thead-dark
+    tr
+      th URI
+      th Статус
+      th Код ответа
+      th Результат
+  tbody
+    - @resource.addresses.each do |item|
+      tr
+        td = item.uri
+        td = item.state
+        td = item.code
+        td = item.result
 
-.controls
-  = button_to 'Удалить', @resource, method: :delete, class: 'btn danger'
-  = link_to 'Вернуться', tasks_path, class: 'btn basic'
+.d-flex.flex-row
+  = link_to 'Вернуться', tasks_path, class: 'btn btn-link float-left'
+  = button_to 'Удалить', @resource, method: :delete, class: 'btn btn-danger float-right'
