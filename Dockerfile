@@ -6,8 +6,6 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt update &&  apt install yarn
 
-RUN yarn install --check-files
-
 ADD . /app
 WORKDIR /app
 
@@ -16,6 +14,10 @@ COPY Gemfile Gemfile.lock ./
 RUN gem install bundler:2.2.19
 
 RUN bundle check || bundle install
+
+COPY package.json yarn.lock ./
+
+RUN yarn install --check-files
 
 COPY . ./
 
